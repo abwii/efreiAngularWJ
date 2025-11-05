@@ -26,4 +26,6 @@
 
 .container {
   @apply gap-6;
+  display: flex;
+  justify-content: center;
 }
