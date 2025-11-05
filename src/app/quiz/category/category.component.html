@@ -29,14 +29,14 @@
   </form>
   <div class="container">
     @if (firstCategory.toLowerCase().includes(category.toLowerCase())){
-    <button class="home_quiz-btn btn--outline">Fondamentaux d'Angular</button>
+    <button class="home_quiz-btn btn--outline" (click)="selectCategory(firstCategory)">Fondamentaux</button>
     } @if (secondCategory.toLowerCase().includes(category.toLowerCase())){
-    <button class="home_quiz-btn btn--outline">
-      Développement et communication
+    <button class="home_quiz-btn btn--outline" (click)="selectCategory(secondCategory)">
+      Developpement
     </button>
     } @if (thirdCategory.toLowerCase().includes(category.toLowerCase())) {
-    <button class="home_quiz-btn btn--outline">
-      Navigation et performance
+    <button class="home_quiz-btn btn--outline" (click)="selectCategory(thirdCategory)">
+      Navigation
     </button>
     }
   </div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-category',
@@ -9,14 +9,24 @@ import { Router } from '@angular/router';
 })
 export class CategoryComponent {
   category = '';
-  firstCategory = 'Fondamentaux d’Angular';
-  secondCategory = 'Développement et communication';
-  thirdCategory = 'Navigation et performance';
+  firstCategory = 'Fondamentaux';
+  secondCategory = 'Developpement';
+  thirdCategory = 'Navigation';
   isCategoryConfirmed = false;
-  constructor(private router: Router) {}
+  playerName = '';
+
+  constructor(private router: Router, private route: ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      this.playerName = params['playerName'];
+    });
+  }
 
   confirmCategory() {
     this.isCategoryConfirmed = true;
     console.log(this.category);
+  }
+
+  selectCategory(categoryName: string) {
+    this.router.navigate(['/quiz', this.playerName, categoryName]);
   }
 }
